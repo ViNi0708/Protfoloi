@@ -1,4 +1,5 @@
 
+
 /* Fonts */
 :root {
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
@@ -612,26 +613,16 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .hero img {
   position: absolute;
   inset: 0;
-  display: block;
   width: 100%;
-  height: auto; /* Ensures the image maintains its aspect ratio */
+  height: 100%;
   object-fit: cover;
   z-index: 1;
-}
-
-@media (max-width: 768px) {
-  .hero {
-    min-height: 100vh; /* Ensure full screen height on mobile */
-  }
-
-  .hero img {
-    object-fit: contain; /* Adjust to "contain" to fit the image properly on smaller screens */
-  }
 }
 
 .hero:before {
@@ -645,33 +636,55 @@ section,
 .hero .container {
   position: relative;
   z-index: 3;
+  max-width: 1200px; /* Limit container width */
+  padding: 0 15px; /* Add some padding for smaller screens */
 }
 
 .hero h2 {
   margin: 0;
   font-size: 64px;
   font-weight: 700;
+  color: #fff;
 }
 
 .hero p {
   margin: 5px 0 0 0;
   font-size: 36px;
   font-weight: 600;
+  color: #fff;
 }
 
 .hero p span {
   letter-spacing: 1px;
+  color: red;
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding: 20px 0;
+  }
+
   .hero h2 {
-    font-size: 32px;
+    font-size: 32px; /* Smaller text for mobile */
+    text-align: center; /* Center text for mobile */
   }
 
   .hero p {
     font-size: 20px;
+    text-align: center; /* Center text for mobile */
+  }
+
+  .hero .container {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero img {
+    object-position: center; /* Ensure the image stays focused on important content */
   }
 }
+
 
 /*--------------------------------------------------------------
 # About Section
